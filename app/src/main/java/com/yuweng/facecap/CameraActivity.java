@@ -112,12 +112,7 @@ public class CameraActivity extends HiddenCameraActivity {
     }
 
     public void capture(View v){
-        String file_save_img = dis_height+"x"+dis_width;
-        final File file_= new File(Environment.getExternalStorageDirectory(),file_save_img);
-        if(!file_.exists()){
-            file_.mkdir();
-        }
-
+        String dis_w_h = dis_height+"x"+dis_width;
         Button btn = (Button)findViewById(R.id.cap_button);
         btn.setVisibility(View.INVISIBLE);
         Random ran = new Random();
@@ -129,6 +124,11 @@ public class CameraActivity extends HiddenCameraActivity {
             int y1 = ran.nextInt(dis_height);
             int x2 = ran.nextInt(dis_width);
             int y2 = ran.nextInt(dis_height);
+            String point_x_y = x1+"x"+y1+"x"+x2+"x"+y2;
+            final File file_ = new File(Environment.getExternalStorageDirectory(),dis_w_h+"/"+point_x_y);
+            if (!file_.exists()){
+                file_.mkdirs();
+            }
             draw.drawCircle(x1,y1,4);
             draw.drawLineNoThread(x1,y1,x2,y2);
             Toast.makeText(this,x1+" "+y1+" "+x2+" "+y2,Toast.LENGTH_LONG).show();
@@ -159,7 +159,7 @@ public class CameraActivity extends HiddenCameraActivity {
                         System.gc();
                     }
                 }
-            },1000,500);
+            },1000,400);
         }
         btn.setVisibility(View.VISIBLE);
     }
