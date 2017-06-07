@@ -15,7 +15,7 @@ public class Draw extends View {
     public Paint paint;
     public Canvas canvas;
     Bitmap bitmap;
-    Draw(Context context,int display_height,int display_width){
+    public Draw(Context context,int display_height,int display_width){
         super(context);
         paint = new Paint(Paint.DITHER_FLAG);
         bitmap = Bitmap.createBitmap(display_width,display_height,Bitmap.Config.RGB_565);
