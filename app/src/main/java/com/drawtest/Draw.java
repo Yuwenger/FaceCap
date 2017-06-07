@@ -1,4 +1,4 @@
-package com.drawtest;
+package com.yuweng.drawtest;
 
 import android.content.Context;
 import android.graphics.Bitmap;
